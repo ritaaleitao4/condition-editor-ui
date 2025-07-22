@@ -4,16 +4,23 @@ export const themePalette: PaletteOptions = {
 	mode: 'dark',
 	primary: {
 		main: '#277fef',
+		dark: '#191919',
+		light: '#ffffff',
 	},
 	secondary: {
 		main: '#28bbff',
+		dark: '#8628ef',
+		light: '#b1b1b1',
 	},
 	background: {
-		default: '#28bbff',
-		paper: '#8628ef',
+		default: '#323232',
+		paper: '#4a4a4a',
 	},
 	text: {
 		primary: '#FFFFFF',
-		secondary: '#00c4ff',// '#c21e84',
+		secondary: '#292929',// '#c21e84',
+	},
+	action: {
+		hover: '#8628ef',
 	}
 };

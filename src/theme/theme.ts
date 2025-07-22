@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import {createTheme, PaletteColor} from '@mui/material';
 import { themePalette } from './palette';
 
 const editorTheme = createTheme({
@@ -19,8 +19,8 @@ const editorTheme = createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				body: {
-					backgroundColor: themePalette.background?.default,
-					backgroundImage: `linear-gradient(90deg, ${themePalette.background?.paper}, ${themePalette.background?.default})`,
+					backgroundColor: (themePalette.secondary as PaletteColor)?.dark,
+					backgroundImage: `linear-gradient(90deg, ${(themePalette.secondary as PaletteColor)?.dark}, ${(themePalette.secondary as PaletteColor)?.main})`,
 					fontFamily: 'sans-serif',
 					margin: 0,
 					minWidth: '320px',
@@ -35,8 +35,8 @@ const editorTheme = createTheme({
 					textAlign: 'center',
 				}
 			},
-		},
-	},
+		}
+	}
 });
 
 export default editorTheme;
