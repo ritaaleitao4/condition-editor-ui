@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
-import { Box, Container, Stack, Typography, Button, MenuItem } from '@mui/material';
+import {Box, Container, Stack, Typography, Button, MenuItem, SelectChangeEvent} from '@mui/material';
 import './data/datastore';
 import { ProductTable, SelectFormControl } from './components';
-import { getProducts, getProperties, getProperty } from './api';
+import { getProducts, getProperties, getProperty, getOperators } from './api';
 import { OperatorType } from './types';
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
 
 	const selectedProperty = useMemo(() => getProperty(selectedPropertyId), [selectedPropertyId]);
 
+	const operators = useMemo(() => getOperators(selectedProperty!.type), [selectedProperty]);
+
 	const products = useMemo(
 		() => getProducts(selectedOperatorId as OperatorType, selectedProperty, filter),
 		[selectedProperty, selectedOperatorId, filter]
@@ -22,6 +24,11 @@ function App() {
 	const handlePropertyChange = (event: SelectChangeEvent<unknown>) => {
 		setSelectedPropertyId(event.target.value as string);
 		setSelectedOperatorId('');
+		setFilter('');
+	};
+
+	const handleOperatorChange = (event: SelectChangeEvent<unknown>) => {
+		setSelectedOperatorId(event.target.value as string);
 		setFilter('');
 	};
 
@@ -53,6 +60,24 @@ function App() {
 						))}
 						data-testid="property-select"
 					/>
+
+					<SelectFormControl
+						id="operator-select"
+						labelId="property-select-label"
+						label="Operator"
+						placeholder="Select an Operator"
+						value={selectedOperatorId}
+						onChange={handleOperatorChange}
+						children={operators.map(operator => (
+							<MenuItem key={operator.id} value={operator.id}>
+								{operator.text}
+							</MenuItem>
+						))}
+						disabled={selectedPropertyId === ''}
+						data-testid="operator-select"
+					/>
+
+
 					<Button
 						variant="contained"
 						sx={{ flexGrow: { xs: 1, md: 0 }, marginLeft: { xs: 0, md: 'auto' } }}

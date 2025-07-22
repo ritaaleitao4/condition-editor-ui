@@ -1,6 +1,6 @@
 import { describe, it, expect, vitest } from 'vitest';
 
-import { products } from './products.ts';
+import { getProducts } from './products.ts';
 
 import { OperatorType, Product } from '@/types';
 import { mockProducts, mockProperties } from "@/data/mockstore.ts";
@@ -10,7 +10,7 @@ describe('getProducts', () => {
 	window.datastore.getProperties = vitest.fn().mockReturnValue(mockProperties);
 
 	it('should return return all products when no property or value are provided', () => {
-		const result: Product[] = products(OperatorType.Equals, undefined, undefined);
+		const result: Product[] = getProducts(OperatorType.Equals, undefined, undefined);
 
 		expect(result).toBe(mockProducts);
 	});
@@ -54,7 +54,7 @@ describe('getProducts', () => {
 	])(
 		'should return products for: property: $property.name, operator: $operator and value $value',
 		({ property, operator, value, expected }) => {
-			const result = products(operator, property, value);
+			const result = getProducts(operator, property, value);
 
 			expect(result).toStrictEqual(expected);
 		}

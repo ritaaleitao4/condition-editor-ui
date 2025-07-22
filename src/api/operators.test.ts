@@ -1,9 +1,9 @@
 import { describe, it, expect, vitest } from 'vitest';
 
-import { operators } from './operators.ts';
+import { getOperators } from './operators.ts';
 
 import { OperatorType, PropertyType } from '@/types';
-import {mockOperators} from "@/data/mockstore.ts";
+import { mockOperators } from "@/data/mockstore.ts";
 
 describe('getOperators', () => {
 	window.datastore.getOperators = vitest.fn(() => mockOperators);
@@ -11,7 +11,7 @@ describe('getOperators', () => {
 	window.datastore.getProperties = vitest.fn();
 
 	it('should return an array of operators for the given property type', () => {
-		const result = operators(PropertyType.String);
+		const result = getOperators(PropertyType.String);
 
 		expect(result).toEqual([
 			{ id: OperatorType.Equals, text: 'Equals' },
