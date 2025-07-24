@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 import './data/datastore';
 import { FilterProductTable, ProductTable } from '@/components';
 import { getProducts, getProperties, getProperty, getOperators } from '@/api';
-import { Operator, OperatorType, Product, Property } from '@/shared';
+import { Operator, OperatorType, Product, Property, PropertyType } from '@/shared';
 import { useFilterStore } from "@/data/filterStore.ts";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
 	const selectedProperty: Property | null = useMemo(() => getProperty(filter.propertyId), [filter]);
 
-	const operators: Operator[] = useMemo(() => selectedProperty ? getOperators(selectedProperty.type) : [], [selectedProperty]);
+	const operators: Operator[] = useMemo(() => selectedProperty ? getOperators(selectedProperty.type as PropertyType) : [], [selectedProperty]);
 
 	const products: Product[] = useMemo(
 		() => getProducts(filter.operatorId as OperatorType, selectedProperty!, filter.value),

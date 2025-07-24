@@ -3,13 +3,13 @@ export type PropertyType = "string" | "number" | "enumerated";
 export interface SimpleProperty {
 	id: number;
 	name: string;
-	type: "string" | "number";
+	type: 'string' | 'number';
 }
 
 export interface EnumeratedProperty {
 	id: number;
 	name: string;
-	type: "enumerated";
+	type: 'enumerated';
 	values: string[];
 }
 

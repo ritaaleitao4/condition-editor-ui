@@ -64,7 +64,7 @@ const matchesPropertyValue = (
 	value?: Operand
 ): boolean => {
 	const compareTo: Operand = String(propertyValue.value);
-	return propertyValue.property_id === property.id && compare(property.type, operatorId, compareTo, value);
+	return propertyValue.property_id === property.id && compare(property.type as PropertyType, operatorId, compareTo, value);
 };
 
 const getProductFilter = (property: Property, operatorId: OperatorType, value?: Operand): (product: Product) => boolean => {
