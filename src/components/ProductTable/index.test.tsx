@@ -1,7 +1,7 @@
 import {describe, it, expect, beforeEach} from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { ProductTable } from './index';
-import { mockProducts, mockProperties } from "@/data/mockstore.ts";
+import { mockProducts, mockProperties } from "@/data/mockStore.ts";
 
 describe('ProductTable', () => {
 	beforeEach(() => {

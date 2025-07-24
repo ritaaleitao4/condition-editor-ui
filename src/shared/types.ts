@@ -21,11 +21,6 @@ export type OperatorId =
   | "in"
   | "contains";
 
-export type Operator = {
-  text: string;
-  id: OperatorId;
-};
-
 export type Filter = {
   propertyId: number | null;
   operatorId: OperatorId | null;

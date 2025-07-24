@@ -9,10 +9,9 @@ import {
     styled,
     TableRowOwnProps
 } from '@mui/material';
-
 import { Product, Property } from '@/types';
-import {StyledComponent} from "@emotion/styled";
-import {themePalette} from "@/theme/palette.ts";
+import { StyledComponent } from "@emotion/styled";
+import { themePalette } from "@/theme/palette.ts";
 
 const StyledTableHeaderRow: StyledComponent<TableRowOwnProps> = styled(TableRow)(({ theme }) => ({
     '&:first-of-type': {
@@ -59,7 +58,7 @@ interface IProductTableProps {
 
 export const ProductTable = ({ products, properties }: IProductTableProps) => {
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} data-testid="product-table">
             <Table>
                 <TableHead>
                     <StyledTableHeaderRow>

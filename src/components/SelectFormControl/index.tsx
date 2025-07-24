@@ -2,6 +2,7 @@ import { FormControl, InputLabel, Select, SelectProps } from '@mui/material';
 
 interface CustomSelectProps extends Omit<SelectProps<unknown>, 'renderValue'> {
     placeholder?: string;
+    value?: unknown;
 }
 
 export const SelectFormControl = (props: CustomSelectProps) => {
@@ -9,8 +10,8 @@ export const SelectFormControl = (props: CustomSelectProps) => {
 
     return (
         <FormControl sx={{ minWidth: 200 }} data-testid="select-form-control">
-            <InputLabel id={labelId}>{value ? label : placeholder}</InputLabel>
-            <Select {...selectProps} />
+            <InputLabel data-testid={labelId}>{value ? label : placeholder}</InputLabel>
+            <Select {...selectProps} value={value ?? ''} />
         </FormControl>
     );
 };

@@ -10,8 +10,6 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "start": "vite",
     "test": "vitest --run"
   },
   "dependencies": {
@@ -20,7 +18,8 @@
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

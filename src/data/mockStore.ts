@@ -1,4 +1,4 @@
-import {Operator, OperatorType, Product, Property, PropertyType} from '@/types';
+import { Operator, OperatorType, Product, Property, PropertyType } from '@/types';
 
 export const mockProperties: Property[] = [
     { id: 0, type: PropertyType.String, name: 'Product Name' },

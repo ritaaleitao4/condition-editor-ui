@@ -1,9 +1,6 @@
 import { describe, it, expect, vitest } from 'vitest';
-
 import { fireEvent, getByRole, render, screen } from '@testing-library/react';
-
 import { SelectProps } from '@mui/material';
-
 import { SelectFormControl } from './index';
 
 describe('SelectFormControl', () => {
@@ -16,9 +13,7 @@ describe('SelectFormControl', () => {
 
 	it('should render SelectFormControl', () => {
 		render(<SelectFormControl {...defaultProps} />);
-
-		const selectFormControl = screen.getByTestId('select-form-control');
-
+		const selectFormControl: HTMLElement = screen.getByTestId('select-form-control');
 		expect(selectFormControl).toBeInTheDocument();
 	});
 
@@ -38,15 +33,12 @@ describe('SelectFormControl', () => {
 			/>
 		);
 
-		const selectFormControl = screen.getByTestId('select-form-control');
-
+		const selectFormControl: HTMLElement = screen.getByTestId('select-form-control');
 		expect(selectFormControl).toBeInTheDocument();
 
         fireEvent.mouseDown(getByRole(selectFormControl, 'combobox'));
-
 		options.forEach(option => {
-			const optionElement = screen.getByText(option.label);
-
+			const optionElement: HTMLElement = screen.getByText(option.label);
 			expect(optionElement).toBeInTheDocument();
 		});
 	});

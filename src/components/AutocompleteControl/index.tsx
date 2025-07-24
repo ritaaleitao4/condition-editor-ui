@@ -1,7 +1,5 @@
 import { SyntheticEvent } from 'react';
-
 import { Autocomplete, Checkbox, TextField } from '@mui/material';
-
 import { CheckBoxOutlineBlank, CheckBox } from '@mui/icons-material';
 
 interface AutocompleteControlProps {

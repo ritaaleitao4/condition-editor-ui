@@ -1,9 +1,7 @@
 import { describe, it, expect, vitest } from 'vitest';
-
 import { getOperators } from './operators.ts';
-
 import { OperatorType, PropertyType } from '@/types';
-import { mockOperators } from "@/data/mockstore.ts";
+import { mockOperators } from "@/data/mockStore.ts";
 
 describe('getOperators', () => {
 	window.datastore.getOperators = vitest.fn(() => mockOperators);

@@ -1,9 +1,9 @@
-import type {Property} from "@/types";
+import type { Property } from "@/types";
 
 export const getProperties: () => Property[] = (): Property[] => {
     return window.datastore.getProperties();
 };
 
-export const getProperty = (id: string) => {
-    return window.datastore.getProperties().find(property => property.id === +id);
+export const getProperty = (id: number | null): Property | null => {
+    return window.datastore.getProperties().find(property => property.id === id) || null;
 };

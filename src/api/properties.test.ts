@@ -2,7 +2,7 @@ import { describe, expect, it, vitest } from 'vitest';
 
 import { getProperties, getProperty } from './properties.ts';
 
-import { mockProperties } from "@/data/mockstore.ts";
+import { mockProperties } from "@/data/mockStore.ts";
 
 describe('getProperties', () => {
 	it('returns the list of properties from the datastore', () => {
@@ -26,16 +26,16 @@ describe('getProperty', () => {
 			getProducts: vitest.fn(),
 		};
 
-		expect(getProperty('2')).toEqual(mockProperties[2]);
+		expect(getProperty(2)).toEqual(mockProperties[2]);
 	});
 
-	it('should return undefined when no property matches the given id', () => {
+	it('should return null when no property matches the given id', () => {
 		window.datastore = {
 			getOperators: () => [],
 			getProducts: () => [],
 			getProperties: () => mockProperties,
 		};
 
-		expect(getProperty('4')).toBeUndefined();
+		expect(getProperty(4)).toBeNull();
 	});
 });

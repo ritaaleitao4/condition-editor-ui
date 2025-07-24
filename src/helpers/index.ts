@@ -24,6 +24,6 @@ const operators: Record<PropertyType, OperatorType[]> = {
     ],
 };
 
-export const isValidOperator = (propertyType: PropertyType, operatorType: OperatorType) => {
+export const isValidOperator = (propertyType: PropertyType, operatorType: OperatorType): boolean => {
     return operators[propertyType].includes(operatorType as OperatorType);
 };

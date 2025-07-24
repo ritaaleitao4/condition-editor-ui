@@ -1,4 +1,4 @@
-import { OperatorType, Product, Property, PropertyType, PropertyValue } from '@/types';
+import { OperatorType, Product, Property, PropertyType } from '@/types';
 
 type Operand = string | string[] | undefined;
 
@@ -53,27 +53,47 @@ const compare = (propType: PropertyType, operatorType: OperatorType, a: Operand,
 	return true;
 };
 
-const getProductFilter = (property: Property, operatorId: OperatorType, value?: string | string[]) => {
-	return (product: Product): boolean | PropertyValue => {
+const hasNoValue = (product: Product, propertyId: number): boolean => {
+	return !product.property_values.find(propertyValue => propertyValue.property_id === propertyId);
+};
+
+const matchesPropertyValue = (
+	propertyValue: { property_id: number | string; value: Operand },
+	property: Property,
+	operatorId: OperatorType,
+	value?: Operand
+): boolean => {
+	const compareTo: Operand = String(propertyValue.value);
+	return propertyValue.property_id === property.id && compare(property.type, operatorId, compareTo, value);
+};
+
+const getProductFilter = (property: Property, operatorId: OperatorType, value?: Operand): (product: Product) => boolean => {
+	return (product: Product) => {
 		if (operatorId === OperatorType.HasNoValue) {
-			return !product.property_values.find(propertyValue => propertyValue.property_id === property.id);
-			
+			return hasNoValue(product, property.id);
 		}
 
-		return product.property_values.find(propertyValue => {
-			const compareTo: Operand = String(propertyValue.value);
-
-			return propertyValue.property_id === property.id && compare(property.type, operatorId, compareTo, value);
-		})!
+		return product.property_values.some(propertyValue =>
+			matchesPropertyValue(
+				{ ...propertyValue, value: String(propertyValue.value) },
+				property,
+				operatorId,
+				value
+			)
+		);
 	};
 };
 
-export const getProducts = (operatorId: OperatorType, property?: Property, value?: string | string[]): Product[] => {
-	if (!!property && operatorId.length > 0) {
-		const productFilter = getProductFilter(property, operatorId, value);
 
-		return window.datastore.getProducts().filter(product => productFilter(product));
+export const getProducts = (
+	operatorId: OperatorType,
+	property?: Property,
+	value?: string | number | string[] | null
+): Product[] => {
+	if (!property || !operatorId) {
+		return window.datastore.getProducts();
 	}
 
-	return window.datastore.getProducts();
+	const productFilter = getProductFilter(property, operatorId, String(value!));
+	return window.datastore.getProducts().filter(productFilter);
 };
