@@ -1,4 +1,4 @@
-import type { Filter } from "@/shared/types";
+import type { Filter } from '@/shared/filter.ts';
 import { create } from "zustand";
 
 export interface FilterState {

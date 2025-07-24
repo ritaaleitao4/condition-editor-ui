@@ -1,4 +1,4 @@
-import type { Property } from "@/types";
+import type { Property } from "src/shared";
 
 export const getProperties: () => Property[] = (): Property[] => {
     return window.datastore.getProperties();

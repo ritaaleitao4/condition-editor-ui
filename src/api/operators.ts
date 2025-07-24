@@ -1,4 +1,4 @@
-import { Operator, PropertyType } from '@/types';
+import { Operator, PropertyType } from '@/shared';
 import { isValidOperator } from '@/helpers';
 
 export const getOperators = (propertyType: PropertyType): Operator[] => {

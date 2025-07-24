@@ -10,7 +10,7 @@ export const SelectFormControl = (props: CustomSelectProps) => {
 
     return (
         <FormControl sx={{ minWidth: 200 }} data-testid="select-form-control">
-            <InputLabel data-testid={labelId}>{value ? label : placeholder}</InputLabel>
+            <InputLabel data-testid={labelId}>{value !== null ? label : placeholder}</InputLabel>
             <Select {...selectProps} value={value ?? ''} />
         </FormControl>
     );

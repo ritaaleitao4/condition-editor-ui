@@ -1,6 +1,6 @@
 import { describe, it, expect, vitest } from 'vitest';
 import { getOperators } from './operators.ts';
-import { OperatorType, PropertyType } from '@/types';
+import { OperatorType, PropertyType } from '@/shared';
 import { mockOperators } from "@/data/mockStore.ts";
 
 describe('getOperators', () => {

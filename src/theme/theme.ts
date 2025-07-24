@@ -31,11 +31,26 @@ const editorTheme = createTheme({
 				'#root': {
 					maxWidth: '1280px',
 					width: '100%',
+					margin: '0 auto',
 					padding: '0 2rem',
 					textAlign: 'center',
 				}
 			},
-		}
+		},
+		MuiFormLabel: {
+			styleOverrides: {
+				root: {
+					color: themePalette.text?.primary,
+					fontFamily: 'sans-serif',
+					fontSize: '1.1rem',
+
+					'&.Mui-focused': {
+						color: themePalette.text?.primary,
+						fontWeight: 'bold',
+					},
+				},
+			},
+		},
 	}
 });
 

@@ -1,4 +1,4 @@
-import { Operator, Product, Property } from './types';
+import { Operator, Product, Property } from './shared';
 
 declare global {
 	interface Window {

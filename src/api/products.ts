@@ -1,4 +1,4 @@
-import { OperatorType, Product, Property, PropertyType } from '@/types';
+import { OperatorType, Product, Property, PropertyType } from '@/shared';
 
 type Operand = string | string[] | undefined;
 

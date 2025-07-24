@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vitest, vi } from 'vitest';
 import { ValueFilterControl } from './index';
-import { OperatorType, PropertyType } from '@/types';
+import { OperatorType, PropertyType } from '@/shared';
 import { useFilterStore } from "@/data/filterStore.ts";
 import { getProperty } from "@/api";
 

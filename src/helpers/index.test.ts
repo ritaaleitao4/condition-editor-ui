@@ -1,9 +1,6 @@
-// index.test.ts
 import { describe, it, expect } from 'vitest';
-
-import { PropertyType, OperatorType } from '@/types';
-
-import { isValidOperator } from './index';
+import { PropertyType, OperatorType } from '@/shared';
+import { isValidOperator } from './index.ts';
 
 describe('isValidOperator', () => {
 	it.each([

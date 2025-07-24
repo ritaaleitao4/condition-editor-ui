@@ -1,17 +1,18 @@
-import { PropertyType } from './propertyType.enum.ts';
+export type PropertyType = "string" | "number" | "enumerated";
 
 export interface SimpleProperty {
 	id: number;
 	name: string;
-	type: PropertyType.String | PropertyType.Number;
+	type: "string" | "number";
 }
 
 export interface EnumeratedProperty {
 	id: number;
 	name: string;
-	type: PropertyType.Enumerated;
+	type: "enumerated";
 	values: string[];
 }
 
 export type Property = SimpleProperty | EnumeratedProperty;
+
 

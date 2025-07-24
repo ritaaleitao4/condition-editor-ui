@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 import './data/datastore';
 import { FilterProductTable, ProductTable } from '@/components';
 import { getProducts, getProperties, getProperty, getOperators } from '@/api';
-import { Operator, OperatorType, Product, Property } from '@/types';
+import { Operator, OperatorType, Product, Property } from '@/shared';
 import { useFilterStore } from "@/data/filterStore.ts";
 
 function App() {

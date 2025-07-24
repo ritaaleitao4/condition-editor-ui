@@ -1,7 +1,7 @@
 import {describe, it, expect, vitest, beforeEach} from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Property, PropertyType } from './types';
 import { mockProducts } from "@/data/mockStore.ts";
+import { Property, PropertyType } from '@/shared';
 import App from './App';
 
 describe('App', () => {

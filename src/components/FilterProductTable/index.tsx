@@ -1,9 +1,9 @@
+import { useMemo } from "react";
 import { MenuItem, Button, Stack } from '@mui/material';
 import { SelectFormControl, ValueFilterControl } from "@/components";
 import { useFilterStore } from "@/data/filterStore.ts";
-import { Operator, OperatorType, Property } from "@/types";
-import { OperatorId } from "@/shared/types.ts";
-import { useMemo } from "react";
+import { Operator, OperatorType, Property } from "@/shared";
+import { OperatorId } from "@/shared/operator.ts";
 
 export const FilterProductTable = ({ properties, operators } : { properties: Property[], operators: Operator[] }) => {
     const { clearFilter, filter, setFilter } = useFilterStore();

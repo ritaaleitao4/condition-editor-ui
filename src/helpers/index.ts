@@ -1,4 +1,4 @@
-import { PropertyType, OperatorType } from '@/types';
+import { PropertyType, OperatorType } from '@/shared';
 
 const operators: Record<PropertyType, OperatorType[]> = {
     [PropertyType.String]: [

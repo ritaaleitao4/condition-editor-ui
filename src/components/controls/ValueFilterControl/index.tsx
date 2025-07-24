@@ -2,9 +2,9 @@ import { MenuItem } from '@mui/material';
 import { useMemo } from "react";
 import { getProperty } from "@/api";
 import { useFilterStore } from "@/data/filterStore.ts";
-import { OperatorType, Property, PropertyType } from '@/types';
+import { OperatorType, Property, PropertyType } from '@/shared';
 import { SelectFormControl, TextFieldFormControl, AutocompleteControl } from '@/components';
-import { EnumeratedProperty } from "@/types/property.ts";
+import { EnumeratedProperty } from "@/shared/property.ts";
 
 export const ValueFilterControl = () => {
     const { filter, setFilter } = useFilterStore();

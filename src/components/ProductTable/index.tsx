@@ -9,7 +9,7 @@ import {
     styled,
     TableRowOwnProps
 } from '@mui/material';
-import { Product, Property } from '@/types';
+import { Product, Property } from '@/shared';
 import { StyledComponent } from "@emotion/styled";
 import { themePalette } from "@/theme/palette.ts";
 

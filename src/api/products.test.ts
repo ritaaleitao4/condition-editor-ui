@@ -1,6 +1,6 @@
 import { describe, it, expect, vitest } from 'vitest';
 import { getProducts } from './products.ts';
-import { OperatorType, Product } from '@/types';
+import { OperatorType, Product } from '@/shared';
 import { mockProducts, mockProperties } from "@/data/mockStore.ts";
 
 describe('getProducts', () => {
